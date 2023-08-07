@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(this.getClass().getResource("lk/ijse/view/mainForm.fxml"));
+        Parent root = FXMLLoader.load(this.getClass().getResource("view/mainForm.fxml"));
         Scene mainScene = new Scene(root);
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("Grama Vista - Login");

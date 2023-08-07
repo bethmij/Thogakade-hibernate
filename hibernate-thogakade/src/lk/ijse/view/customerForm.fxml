@@ -16,10 +16,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="customerPane" prefHeight="468.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerController">
+<AnchorPane fx:id="customerPane" prefHeight="565.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="468.0" layoutY="2.0" stroke="WHITE" strokeType="INSIDE" width="644.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="565.0" layoutY="2.0" stroke="WHITE" strokeType="INSIDE" width="759.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.1818182251670144">
                <stops>
@@ -58,36 +57,36 @@
             <Font name="Ubuntu" size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="59.0" layoutY="93.0" prefHeight="34.0" prefWidth="231.0" promptText="Customer id" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
+      <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="59.0" layoutY="93.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer id" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtName" alignment="CENTER" focusTraversable="false" layoutX="59.0" layoutY="149.0" prefHeight="34.0" prefWidth="231.0" promptText="Customer name" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
+      <TextField fx:id="txtName" alignment="CENTER" focusTraversable="false" layoutX="59.0" layoutY="166.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer name" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="346.0" layoutY="93.0" prefHeight="34.0" prefWidth="231.0" promptText="Customer Address" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
+      <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="381.0" layoutY="93.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer Address" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtContact" alignment="CENTER" focusTraversable="false" layoutX="346.0" layoutY="149.0" prefHeight="34.0" prefWidth="231.0" promptText="Customer Contact" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
+      <TextField fx:id="txtContact" alignment="CENTER" focusTraversable="false" layoutX="381.0" layoutY="166.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer Contact" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="329.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Save" />
-      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="438.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Update" />
-      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="540.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Clear" />
-      <TableView blendMode="MULTIPLY" layoutX="13.0" layoutY="245.0" prefHeight="219.0" prefWidth="620.0">
+      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="450.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Save" />
+      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="554.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Update" />
+      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="653.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Clear" />
+      <TableView blendMode="MULTIPLY" layoutX="14.0" layoutY="284.0" prefHeight="274.0" prefWidth="734.0">
         <columns>
-          <TableColumn fx:id="ColId" prefWidth="82.40002250671387" text="Customer id" />
-          <TableColumn fx:id="ColName" prefWidth="147.19995880126953" text="Customer name" />
-            <TableColumn fx:id="ColAddress" prefWidth="166.4000244140625" text="Customer Address" />
-            <TableColumn fx:id="ColContact" prefWidth="134.39999389648438" text="Customer Contact" />
-            <TableColumn fx:id="ColAction" prefWidth="92.79998779296875" text="Action" />
+          <TableColumn fx:id="ColId" prefWidth="114.4000244140625" text="Customer id" />
+          <TableColumn fx:id="ColName" prefWidth="150.4000244140625" text="Customer name" />
+            <TableColumn fx:id="ColAddress" prefWidth="195.20001220703125" text="Customer Address" />
+            <TableColumn fx:id="ColContact" prefWidth="136.79998779296875" text="Customer Contact" />
+            <TableColumn fx:id="ColAction" prefWidth="137.5999755859375" text="Action" />
         </columns>
       </TableView>
    </children>

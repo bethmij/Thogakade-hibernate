@@ -9,10 +9,10 @@ import java.io.IOException;
 
 public class OpenView {
 
-    public static void openView (String view , AnchorPane pane){
+    public void openView(String view, AnchorPane pane){
         Stage stage = (Stage)pane.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(OpenView.class.getResource("/view/" +view+".fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("view/mainForm.fxml"))));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -23,7 +23,7 @@ public class OpenView {
     public static void openView (String view ){
         Stage stage = new Stage();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(OpenView.class.getResource("/view/" +view+".fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(OpenView.class.getResource("view/"+view+".fxml"))));
         } catch (IOException e) {
             e.printStackTrace();
         }

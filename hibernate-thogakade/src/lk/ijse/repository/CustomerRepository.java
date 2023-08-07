@@ -86,7 +86,7 @@ public class CustomerRepository {
         List<Customer> customerList = null;
 
         try {
-            customerList = session.createSQLQuery("SELECT * FROM customer").list();
+            customerList = session.createSQLQuery("SELECT * FROM customer").addEntity(Customer.class).list();
             transaction.commit();
 
         }catch (Exception e){
@@ -101,11 +101,10 @@ public class CustomerRepository {
 
     public int getCustomerId(){
         Transaction transaction = session.beginTransaction();
-        int custId = 0;
         List<Integer> id = null;
 
         try {
-            id = session.createSQLQuery("SELECT customer_id FROM customer").list();
+            id = session.createSQLQuery("SELECT customer_id FROM customer ORDER BY customer_id DESC LIMIT 1").list();
             transaction.commit();
 
         }catch (Exception e){

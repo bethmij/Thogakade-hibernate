@@ -1,5 +1,7 @@
 package lk.ijse.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
@@ -66,14 +68,22 @@ public class Customer {
         this.contact = contact;
     }
 
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", contact='" + contact + '\'' +
-                ", salary='" + salary + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 }

@@ -82,11 +82,12 @@
       <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="653.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Clear" />
       <TableView blendMode="MULTIPLY" layoutX="14.0" layoutY="284.0" prefHeight="274.0" prefWidth="734.0">
         <columns>
-          <TableColumn fx:id="ColId" prefWidth="114.4000244140625" text="Customer id" />
-          <TableColumn fx:id="ColName" prefWidth="150.4000244140625" text="Customer name" />
-            <TableColumn fx:id="ColAddress" prefWidth="195.20001220703125" text="Customer Address" />
-            <TableColumn fx:id="ColContact" prefWidth="136.79998779296875" text="Customer Contact" />
-            <TableColumn fx:id="ColAction" prefWidth="137.5999755859375" text="Action" />
+          <TableColumn fx:id="ColId" minWidth="0.800018310546875" prefWidth="83.20001220703125" text="Customer id" />
+          <TableColumn fx:id="ColName" prefWidth="132.79998779296875" text="Customer name" />
+            <TableColumn fx:id="ColAddress" minWidth="8.0" prefWidth="140.0" text="Customer Address" />
+            <TableColumn fx:id="ColContact" prefWidth="143.20001220703125" text="Customer Contact" />
+            <TableColumn fx:id="ColSalary" minWidth="0.0" prefWidth="138.39996337890625" text="Customer Salary" />
+            <TableColumn fx:id="ColAction" minWidth="0.0" prefWidth="98.39999999999998" text="Action" />
         </columns>
       </TableView>
       <Label layoutX="331.0" layoutY="31.0" text="Customer_id">

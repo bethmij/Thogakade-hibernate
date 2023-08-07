@@ -32,6 +32,7 @@ public class CustomerController implements Initializable {
     public AnchorPane customerPane;
     public Label custId;
     public TextField txtSalary;
+    public TableColumn ColSalary;
     CustomerRepository customerRepository = null;
 
     @Override

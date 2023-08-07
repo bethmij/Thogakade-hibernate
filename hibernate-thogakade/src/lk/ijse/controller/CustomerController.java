@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 public class CustomerController {
     public TextField txtId;
@@ -15,6 +16,7 @@ public class CustomerController {
     public TableColumn ColAddress;
     public TableColumn ColContact;
     public TableColumn ColAction;
+    public AnchorPane customerPane;
 
     public void navigateToHome(MouseEvent mouseEvent) {
     }

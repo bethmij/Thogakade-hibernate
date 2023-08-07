@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="468.0" prefWidth="644.0" stylesheets="@assets/css/icon.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainController">
+<AnchorPane fx:id="mainPane" prefHeight="468.0" prefWidth="644.0" stylesheets="@assets/css/icon.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="468.0" stroke="WHITE" strokeType="INSIDE" width="644.0">
          <fill>

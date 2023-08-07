@@ -1,0 +1,6 @@
+.image-icon:hover{
+    //-fx-effect: dropshadow(gaussian, #ff1f31, 10, 0.7, 0.0, 0.0);
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+
+}

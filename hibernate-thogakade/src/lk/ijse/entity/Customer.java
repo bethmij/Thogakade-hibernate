@@ -3,14 +3,16 @@ package lk.ijse.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name="customer")
+@Table(name="customer_id")
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "id")
     private int id;
 
     @Column(name = "customer_name")
@@ -24,6 +26,17 @@ public class Customer {
 
     @Column(name = "customer_salary")
     private double salary;
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
+    @OneToMany (mappedBy = "customer")
+    private List<Order> orderList = new ArrayList<>();
 
     public Customer() {
     }

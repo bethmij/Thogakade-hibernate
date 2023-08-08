@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -17,14 +17,22 @@ public class Order {
     @Column(name = "order_date")
     private LocalDate orderDate;
 
-    @Column(name = "customer_id")
-    private int customerId;
-
     @Column(name = "total_price")
     private BigDecimal orderTotal;
 
-    @Transient
-    List<OrderDetail> orderDetaisList;
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    @ManyToOne
+    private Customer customer;
+
+    /*@Transient
+    List<OrderDetail> orderDetaisList;*/
 
     public Order() {
     }
@@ -32,9 +40,9 @@ public class Order {
     public Order(int orderId, LocalDate orderDate, int customerId, BigDecimal orderTotal, List<OrderDetail> orderDetaisList) {
         this.orderId = orderId;
         this.orderDate = orderDate;
-        this.customerId = customerId;
+        //this.customerId = customerId;
         this.orderTotal = orderTotal;
-        this.orderDetaisList = orderDetaisList;
+        //this.orderDetaisList = orderDetaisList;
     }
 
     public int getOrderId() {
@@ -53,13 +61,13 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public int getCustomerId() {
+   /* public int getCustomerId() {
         return customerId;
     }
 
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
-    }
+    }*/
 
     public BigDecimal getOrderTotal() {
         return orderTotal;
@@ -69,22 +77,22 @@ public class Order {
         this.orderTotal = orderTotal;
     }
 
-    public List<OrderDetail> getOrderDetaisList() {
+    /*public List<OrderDetail> getOrderDetaisList() {
         return orderDetaisList;
     }
 
     public void setOrderDetaisList(List<OrderDetail> orderDetaisList) {
         this.orderDetaisList = orderDetaisList;
-    }
+    }*/
 
     @Override
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
                 ", orderDate=" + orderDate +
-                ", customerId=" + customerId +
+                //", customerId=" + customerId +
                 ", orderTotal=" + orderTotal +
-                ", orderDetaisList=" + orderDetaisList +
+                //", orderDetaisList=" + orderDetaisList +
                 '}';
     }
 }

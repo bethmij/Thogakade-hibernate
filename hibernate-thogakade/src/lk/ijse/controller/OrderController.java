@@ -44,7 +44,7 @@ public class OrderController {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        OrderTM orderTM = new OrderTM(Integer.parseInt(lblOrder.getText()), Integer.parseInt((String) cmbCust.getValue()), Integer.parseInt((String) cmbItem.getValue()), Double.parseDouble(txtPrice.getText()), Integer.parseInt(txtQty.getText()), Double.parseDouble(lblPrice.getText()));
+       // OrderTM orderTM = new OrderTM(Integer.parseInt(lblOrder.getText()), Integer.parseInt((String) cmbCust.getValue()), Integer.parseInt((String) cmbItem.getValue()), Double.parseDouble(txtPrice.getText()), Integer.parseInt(txtQty.getText()), Double.parseDouble(lblPrice.getText()));
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {

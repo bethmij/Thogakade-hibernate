@@ -2,6 +2,7 @@ package lk.ijse.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
@@ -9,11 +10,6 @@ import java.math.BigDecimal;
 @Table(name = "order_detail")
 public class OrderDetail {
 
-    @Column(name = "order_id")
-    private int orderID;
-
-    @Column(name = "item_code")
-    private int itemCode;
 
     @Column(name = "quantity")
     private int qty;
@@ -21,17 +17,23 @@ public class OrderDetail {
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
+    @ManyToOne
+    private Order order;
+
+    @ManyToOne
+    private Item item;
+
     public OrderDetail() {
     }
 
     public OrderDetail(int orderID, int itemCode, int qty, BigDecimal unitPrice) {
-        this.orderID = orderID;
-        this.itemCode = itemCode;
+        //this.orderID = orderID;
+        //this.itemCode = itemCode;
         this.qty = qty;
         this.unitPrice = unitPrice;
     }
 
-    public int getOrderID() {
+    /*public int getOrderID() {
         return orderID;
     }
 
@@ -45,7 +47,7 @@ public class OrderDetail {
 
     public void setItemCode(int itemCode) {
         this.itemCode = itemCode;
-    }
+    }*/
 
     public int getQty() {
         return qty;
@@ -66,8 +68,8 @@ public class OrderDetail {
     @Override
     public String toString() {
         return "OrderDetail{" +
-                "orderID=" + orderID +
-                ", itemCode=" + itemCode +
+                //"orderID=" + orderID +
+                //", itemCode=" + itemCode +
                 ", qty=" + qty +
                 ", unitPrice=" + unitPrice +
                 '}';

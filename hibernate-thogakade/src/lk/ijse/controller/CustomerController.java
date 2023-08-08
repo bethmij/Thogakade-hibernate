@@ -18,6 +18,7 @@ import lk.ijse.entity.tm.CustomerTM;
 import lk.ijse.repository.CustomerRepository;
 
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -47,13 +48,7 @@ public class CustomerController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setCellValueFactory();
         getAllCustomer();
-
-        customerRepository = new CustomerRepository();
-        int customerId = customerRepository.getCustomerId();
-        if( customerId==0)
-            custId.setText(String.valueOf(1));
-        else
-            custId.setText(String.valueOf(customerId));
+        setLblID();
     }
 
     public void navigateToHome(MouseEvent mouseEvent) throws IOException {
@@ -70,18 +65,33 @@ public class CustomerController implements Initializable {
         customerRepository = new CustomerRepository();
         int savedId = customerRepository.saveCustomer(customer);
 
-        if(savedId>0)
+        if(savedId>0) {
+            getAllCustomer();
+            setLblID();
             new Alert(Alert.AlertType.CONFIRMATION, "Customer Saved!").show();
-        else
+        }else
             new Alert(Alert.AlertType.ERROR, "Customer Saved Failed!").show();
+
+
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        Customer customer = new Customer((Integer) ColId.getCellData(tbl.getSelectionModel().getSelectedIndex()),txtName.getText(), txtAddress.getText(), txtContact.getText(), Double.valueOf(txtSalary.getText()) );
+        customerRepository = new CustomerRepository();
+        boolean isUpdated = customerRepository.updateCustomer(customer);
 
-
+        if(isUpdated) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Customer Updated!").show();
+            getAllCustomer();
+        }else
+            new Alert(Alert.AlertType.ERROR, "Customer Updated Failed!").show();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        txtName.clear();
+        txtAddress.clear();;
+        txtContact.clear();;
+        txtSalary.clear();;
     }
 
     private void setCellValueFactory() {
@@ -94,7 +104,7 @@ public class CustomerController implements Initializable {
     }
 
     public void getAllCustomer(){
-
+        tbl.getItems().clear();
         try {
             customerRepository = new CustomerRepository();
             List<Customer> allCustomer = customerRepository.getAllCustomer();
@@ -125,10 +135,43 @@ public class CustomerController implements Initializable {
                 customerRepository = new CustomerRepository();
                 Customer customer = customerRepository.getCustomer((Integer) ColId.getCellData(tbl.getSelectionModel().getSelectedIndex()));
 
-                customerRepository.deleteCustomer(customer);
+                customerRepository = new CustomerRepository();
+                boolean isDeleted = customerRepository.deleteCustomer(customer);
+                if(isDeleted) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted!").show();
+                    getAllCustomer();
+                    setLblID();
+
+                }else
+                    new Alert(Alert.AlertType.ERROR, "Customer Deleted Failed!").show();
             }
         });
     }
+
+    private void setLblID() {
+        customerRepository = new CustomerRepository();
+        int customerId = customerRepository.getCustomerId();
+        if( customerId==0)
+            custId.setText(String.valueOf(1));
+        else
+            custId.setText(String.valueOf(customerId+1));
+    }
+
+    public void tblOnAction(MouseEvent mouseEvent) {
+        if (mouseEvent.getClickCount() == 2){
+            Integer custID = (Integer) ColId.getCellData(tbl.getSelectionModel().getSelectedIndex());
+
+            if(custID!=null){
+                CustomerTM customerTM = (CustomerTM) tbl.getSelectionModel().getSelectedItem();
+                custId.setText(String.valueOf(customerTM.getId()));
+                txtName.setText(customerTM.getName());
+                txtAddress.setText(customerTM.getAddress());
+                txtContact.setText(customerTM.getContact());
+                txtSalary.setText(String.valueOf(customerTM.getSalary()));
+            }
+        }
+    }
+
 
 }
 

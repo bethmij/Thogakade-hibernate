@@ -68,7 +68,7 @@ public class CustomerRepository {
         Transaction transaction = session.beginTransaction();
         Customer customer = null;
         try {
-            session.get(Customer.class, id);
+            customer = session.get(Customer.class, id);
             transaction.commit();
 
         }catch (Exception e){
@@ -115,7 +115,7 @@ public class CustomerRepository {
             session.close();
         }
 
-        if(id.equals(null))
+        if(!id.equals(null))
             return id.get(0);
         else
             return 0;

@@ -57,22 +57,22 @@
             <Font name="Ubuntu" size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" alignment="CENTER" focusTraversable="false" layoutX="59.0" layoutY="93.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer name" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
+      <TextField fx:id="txtName" alignment="CENTER" focusTraversable="false" layoutX="59.0" layoutY="93.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer name" style="-fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtSalary" alignment="CENTER" focusTraversable="false" layoutX="59.0" layoutY="166.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer salary" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
+      <TextField fx:id="txtSalary" alignment="CENTER" focusTraversable="false" layoutX="59.0" layoutY="166.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer salary" style="-fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="381.0" layoutY="93.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer Address" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
+      <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="381.0" layoutY="93.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer Address" style="-fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtContact" alignment="CENTER" focusTraversable="false" layoutX="381.0" layoutY="166.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer Contact" style="-fx-background-color: #e#ffe4e1bf2ed; -fx-background-radius: 30;">
+      <TextField fx:id="txtContact" alignment="CENTER" focusTraversable="false" layoutX="381.0" layoutY="166.0" prefHeight="34.0" prefWidth="272.0" promptText="Customer Contact" style="-fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -80,7 +80,7 @@
       <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="450.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Save" />
       <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="554.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Update" />
       <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="653.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Clear" />
-      <TableView fx:id="tbl" blendMode="MULTIPLY" layoutX="14.0" layoutY="284.0" prefHeight="274.0" prefWidth="734.0">
+      <TableView fx:id="tbl" blendMode="MULTIPLY" layoutX="14.0" layoutY="284.0" onMouseClicked="#tblOnAction" prefHeight="274.0" prefWidth="734.0">
         <columns>
           <TableColumn fx:id="ColId" minWidth="0.800018310546875" prefWidth="83.20001220703125" text="Customer id" />
           <TableColumn fx:id="ColName" prefWidth="132.79998779296875" text="Customer name" />

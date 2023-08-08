@@ -68,9 +68,10 @@ public class CustomerController implements Initializable {
         if(savedId>0) {
             getAllCustomer();
             setLblID();
+            clearTxt();
             new Alert(Alert.AlertType.CONFIRMATION, "Customer Saved!").show();
         }else
-            new Alert(Alert.AlertType.ERROR, "Customer Saved Failed!").show();
+            new Alert(Alert.AlertType.ERROR, "Customer Save Failed!").show();
 
 
     }
@@ -83,15 +84,24 @@ public class CustomerController implements Initializable {
         if(isUpdated) {
             new Alert(Alert.AlertType.CONFIRMATION, "Customer Updated!").show();
             getAllCustomer();
+            clearTxt();
+            setLblID();
         }else
-            new Alert(Alert.AlertType.ERROR, "Customer Updated Failed!").show();
+            new Alert(Alert.AlertType.ERROR, "Customer Update Failed!").show();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        clearTxt();
+    }
+
+    private void clearTxt() {
         txtName.clear();
-        txtAddress.clear();;
-        txtContact.clear();;
-        txtSalary.clear();;
+        txtAddress.clear();
+        ;
+        txtContact.clear();
+        ;
+        txtSalary.clear();
+        ;
     }
 
     private void setCellValueFactory() {
@@ -143,7 +153,7 @@ public class CustomerController implements Initializable {
                     setLblID();
 
                 }else
-                    new Alert(Alert.AlertType.ERROR, "Customer Deleted Failed!").show();
+                    new Alert(Alert.AlertType.ERROR, "Customer Delete Failed!").show();
             }
         });
     }

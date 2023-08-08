@@ -116,7 +116,7 @@ public class ItemRepository {
                 session.close();
             }
 
-            if(!id.equals(null))
+            if(!id.isEmpty())
                 return id.get(0);
             else
                 return 0;

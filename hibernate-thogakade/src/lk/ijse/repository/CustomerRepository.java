@@ -115,7 +115,7 @@ public class CustomerRepository {
             session.close();
         }
 
-        if(!id.equals(null))
+        if(!id.isEmpty())
             return id.get(0);
         else
             return 0;

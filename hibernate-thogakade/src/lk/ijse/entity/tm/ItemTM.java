@@ -1,33 +1,27 @@
-package lk.ijse.entity;
+package lk.ijse.entity.tm;
 
-import javax.persistence.*;
+import javafx.scene.control.Button;
 
-@Entity
-@Table(name = "item")
-public class Item {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "item_code")
+public class ItemTM {
     private int id;
 
-    @Column(name = "item_name")
     private String name;
 
-    @Column(name = "item_description")
     private String description;
 
-    @Column(name = "qty_on_hand")
     private String qtyOnHand;
 
-    public Item() {
+    private Button button;
+
+    public ItemTM() {
     }
 
-    public Item(int id, String name, String description, String qtyOnHand) {
+    public ItemTM(int id, String name, String description, String qtyOnHand, Button button) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.qtyOnHand = qtyOnHand;
+        this.button = button;
     }
 
     public int getId() {
@@ -62,13 +56,22 @@ public class Item {
         this.qtyOnHand = qtyOnHand;
     }
 
+    public Button getButton() {
+        return button;
+    }
+
+    public void setButton(Button button) {
+        this.button = button;
+    }
+
     @Override
     public String toString() {
-        return "Item{" +
+        return "ItemTM{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", qtyOnHand='" + qtyOnHand + '\'' +
+                ", button=" + button +
                 '}';
     }
 }

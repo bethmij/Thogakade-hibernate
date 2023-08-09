@@ -1,5 +1,7 @@
 package lk.ijse.entity;
 
+import lk.ijse.embaded.OrderDetails;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +15,14 @@ public class Item {
     @Column(name = "item_code")
     private int id;
 
-    @OneToMany(mappedBy = "orderList")
+    /*@OneToMany(mappedBy = "orderList")
     private List<OrderDetail> orderDetails = new ArrayList<> ();
 
     @ManyToMany
     @JoinTable(name = "order_details",
         joinColumns = { @JoinColumn (name = "itemId")},
         inverseJoinColumns = { @JoinColumn (name = "orderId")})
-    private List<Order> orderList = new ArrayList<>();
+    private List<Order> orderList = new ArrayList<>();*/
 
     @Column(name = "item_name")
     private String name;
@@ -30,6 +32,18 @@ public class Item {
 
     @Column(name = "qty_on_hand")
     private String qtyOnHand;
+
+   /* @ElementCollection
+    @CollectionTable(name = "order_details",
+            joinColumns = @JoinColumn(name = "item_code"))
+    private List<OrderDetails> orderDetail = new ArrayList<>();*/
+
+    /*@ManyToMany
+    @JoinTable(name = "order_details", joinColumns = {@JoinColumn(name = "item_code")}, inverseJoinColumns = {@JoinColumn(name = "order_id")})
+    private List<Order> orderList = new ArrayList<>();*/
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderDetail> orderDetailArrayList = new ArrayList<>();
 
     public Item() {
     }

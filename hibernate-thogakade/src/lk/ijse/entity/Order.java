@@ -1,5 +1,8 @@
 package lk.ijse.entity;
 
+import lk.ijse.embaded.OrderDetails;
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,11 +18,26 @@ public class Order {
     @Column(name = "order_id")
     private int orderId;
 
+    @CreationTimestamp
     @Column(name = "order_date")
     private LocalDate orderDate;
 
     @Column(name = "total_price")
     private BigDecimal orderTotal;
+
+    @ElementCollection
+    @CollectionTable(name = "order_details",
+            joinColumns = @JoinColumn(name = "order_id"))
+    private List<OrderDetails> orderDetail = new ArrayList<>();
+
+    /*@ManyToMany(mappedBy = "orderList")
+    private List<Item> order = new ArrayList<>();
+
+    @OneToMany (mappedBy = "order")
+    private List<OrderDetail> orderDetails = new ArrayList<>();*/
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderDetail> orderDetailArrayList = new ArrayList<>();
 
     public Customer getCustomer() {
         return customer;
@@ -32,8 +50,8 @@ public class Order {
     @ManyToOne
     private Customer customer;
 
-    @OneToMany(mappedBy = "orderList")
-    private List<OrderDetail> orderDetails = new ArrayList<>();
+   /* @OneToMany(mappedBy = "orderList")
+    private List<OrderDetail> orderDetails = new ArrayList<>();*/
 
     /*@Transient
     List<OrderDetail> orderDetaisList;*/
@@ -41,12 +59,10 @@ public class Order {
     public Order() {
     }
 
-    public Order(int orderId, LocalDate orderDate, int customerId, BigDecimal orderTotal, List<OrderDetail> orderDetaisList) {
+    public Order(int orderId, LocalDate orderDate, BigDecimal orderTotal) {
         this.orderId = orderId;
         this.orderDate = orderDate;
-        //this.customerId = customerId;
         this.orderTotal = orderTotal;
-        //this.orderDetaisList = orderDetaisList;
     }
 
     public int getOrderId() {
@@ -65,14 +81,6 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-   /* public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }*/
-
     public BigDecimal getOrderTotal() {
         return orderTotal;
     }
@@ -81,13 +89,6 @@ public class Order {
         this.orderTotal = orderTotal;
     }
 
-    /*public List<OrderDetail> getOrderDetaisList() {
-        return orderDetaisList;
-    }
-
-    public void setOrderDetaisList(List<OrderDetail> orderDetaisList) {
-        this.orderDetaisList = orderDetaisList;
-    }*/
 
     @Override
     public String toString() {

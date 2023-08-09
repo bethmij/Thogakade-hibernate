@@ -1,6 +1,6 @@
 package lk.ijse.entity;
 
-import lk.ijse.embaded.PlaceOrderDetails;
+import lk.ijse.embaded.OrderDetailsID;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -9,8 +9,6 @@ import java.math.BigDecimal;
 @Table(name = "order_detail")
 public class OrderDetail {
 
-    @EmbeddedId
-    private PlaceOrderDetails id = new PlaceOrderDetails();
 
     @Column(name = "quantity")
     private int qty;
@@ -18,39 +16,20 @@ public class OrderDetail {
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
-    @ManyToOne
-    @MapsId("order_id")
-    private Order order;
+    @EmbeddedId
+    private OrderDetailsID orderDetailsID;
 
     @ManyToOne
     @MapsId("item_id")
     private Item item;
 
+    @ManyToOne
+    @MapsId("order_id")
+    private Order order;
+
     public OrderDetail() {
     }
 
-    public OrderDetail(int orderID, int itemCode, int qty, BigDecimal unitPrice) {
-        //this.orderID = orderID;
-        //this.itemCode = itemCode;
-        this.qty = qty;
-        this.unitPrice = unitPrice;
-    }
-
-    /*public int getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
-    }
-
-    public int getItemCode() {
-        return itemCode;
-    }
-
-    public void setItemCode(int itemCode) {
-        this.itemCode = itemCode;
-    }*/
 
     public int getQty() {
         return qty;

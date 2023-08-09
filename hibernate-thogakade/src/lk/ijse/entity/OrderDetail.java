@@ -1,15 +1,16 @@
 package lk.ijse.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import lk.ijse.embaded.PlaceOrderDetails;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "order_detail")
 public class OrderDetail {
 
+    @EmbeddedId
+    private PlaceOrderDetails id = new PlaceOrderDetails();
 
     @Column(name = "quantity")
     private int qty;
@@ -18,9 +19,11 @@ public class OrderDetail {
     private BigDecimal unitPrice;
 
     @ManyToOne
+    @MapsId("order_id")
     private Order order;
 
     @ManyToOne
+    @MapsId("item_id")
     private Item item;
 
     public OrderDetail() {

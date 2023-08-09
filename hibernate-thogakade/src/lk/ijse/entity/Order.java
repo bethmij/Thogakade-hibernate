@@ -3,6 +3,7 @@ package lk.ijse.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,6 +31,9 @@ public class Order {
 
     @ManyToOne
     private Customer customer;
+
+    @OneToMany(mappedBy = "orderList")
+    private List<OrderDetail> orderDetails = new ArrayList<>();
 
     /*@Transient
     List<OrderDetail> orderDetaisList;*/

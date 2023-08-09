@@ -1,6 +1,8 @@
 package lk.ijse.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "item")
@@ -10,6 +12,15 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_code")
     private int id;
+
+    @OneToMany(mappedBy = "orderList")
+    private List<OrderDetail> orderDetails = new ArrayList<> ();
+
+    @ManyToMany
+    @JoinTable(name = "order_details",
+        joinColumns = { @JoinColumn (name = "itemId")},
+        inverseJoinColumns = { @JoinColumn (name = "orderId")})
+    private List<Order> orderList = new ArrayList<>();
 
     @Column(name = "item_name")
     private String name;

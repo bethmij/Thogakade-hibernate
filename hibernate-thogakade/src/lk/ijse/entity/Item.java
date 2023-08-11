@@ -34,6 +34,10 @@ public class Item {
         this.qtyOnHand = qtyOnHand;
     }
 
+    public Item(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

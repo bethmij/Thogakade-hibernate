@@ -44,6 +44,10 @@ public class Order {
         this.orderDetailsList = orderDetailsList;
     }
 
+    public Order(int orderId) {
+        this.orderId = orderId;
+    }
+
     public int getOrderId() {
         return orderId;
     }

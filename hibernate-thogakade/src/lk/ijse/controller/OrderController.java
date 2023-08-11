@@ -15,7 +15,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.entity.Customer;
 import lk.ijse.entity.Item;
+import lk.ijse.entity.Order;
+import lk.ijse.entity.OrderDetails;
 import lk.ijse.entity.tm.CustomerTM;
 import lk.ijse.entity.tm.ItemTM;
 import lk.ijse.entity.tm.OrderTM;
@@ -107,10 +110,18 @@ public class OrderController implements Initializable {
         OrderTM orderTM = new OrderTM(Integer.parseInt(lblOrder.getText()), (Integer) cmbCust.getValue(), (Integer) cmbItem.getValue(), Double.parseDouble(txtPrice.getText()), Integer.parseInt(txtQty.getText()), Double.parseDouble(lblPrice.getText()), delete);
         obList.add(orderTM);
         tbl.setItems(obList);
+        clearData();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        clearData();
+    }
 
+    private void clearData() {
+        cmbItem.setValue("");
+        txtPrice.clear();
+        txtQty.clear();
+        lblPrice.setText("");
     }
 
     public void tblOnAction(MouseEvent mouseEvent) {
@@ -119,21 +130,34 @@ public class OrderController implements Initializable {
 
             if(custID!=null){
                 OrderTM orderTM = (OrderTM) tbl.getSelectionModel().getSelectedItem();
-                lblOrder.setText(String.valueOf(orderTM.getOrderId());
+                lblOrder.setText(String.valueOf(orderTM.getOrderId()));
                 cmbCust.setValue(orderTM.getCustId());
-                cmbItem.setValue(customerTM.getAddress());
-                txtPrice.setText(customerTM.getContact());
-                txtQty.setText(String.valueOf(customerTM.getSalary()));
-                lblPrice.setText(String.valueOf(customerTM.getSalary()));
+                cmbItem.setValue(orderTM.getItemId());
+                txtPrice.setText(String.valueOf(orderTM.getUnitPrice()));
+                txtQty.setText(String.valueOf(orderTM.getQuantity()));
+                lblPrice.setText(String.valueOf(orderTM.getPrice()));
             }
         }
     }
 
     public void btnOrderOnAction(ActionEvent actionEvent) {
+        Customer customer = new Customer((Integer) cmbItem.getValue());
+        Item item = new Item((Integer) cmbItem.getValue());
+
+        Order order = new Order(Integer.parseInt(lblOrder.getText()));
     }
 
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        OrderTM selectedData = (OrderTM) tbl.getSelectionModel().getSelectedItem();
+        System.out.println(selectedData);
+        selectedData.setOrderId(Integer.parseInt(lblOrder.getText()));
+        selectedData.setCustId((Integer) cmbCust.getValue());
+        selectedData.setItemId((Integer) cmbItem.getValue());
+        selectedData.setUnitPrice(Double.parseDouble(txtPrice.getText()));
+        selectedData.setQuantity(Integer.parseInt(txtQty.getText()));
+        selectedData.setPrice(Double.parseDouble(lblPrice.getText()));
+        tbl.refresh();
     }
 
     public void priceOnAction(KeyEvent keyEvent) {

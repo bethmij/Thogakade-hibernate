@@ -45,6 +45,12 @@ public class MainController {
         primaryStage.centerOnScreen();
     }
 
-    public void orderOnClick(MouseEvent mouseEvent) {
+    public void orderOnClick(MouseEvent mouseEvent) throws IOException {
+        URL resource = this.getClass().getResource("/lk/ijse/view/orderForm.fxml");
+        Parent root = FXMLLoader.load(resource);
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (this.mainPane.getScene().getWindow());
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
     }
 }

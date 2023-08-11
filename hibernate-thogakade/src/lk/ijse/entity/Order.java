@@ -1,6 +1,5 @@
 package lk.ijse.entity;
 
-import lk.ijse.embaded.OrderDetails;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -25,44 +24,24 @@ public class Order {
     @Column(name = "total_price")
     private BigDecimal orderTotal;
 
-    @ElementCollection
-    @CollectionTable(name = "order_details",
-            joinColumns = @JoinColumn(name = "order_id"))
-    private List<OrderDetails> orderDetail = new ArrayList<>();
-
-    /*@ManyToMany(mappedBy = "orderList")
-    private List<Item> order = new ArrayList<>();
-
-    @OneToMany (mappedBy = "order")
-    private List<OrderDetail> orderDetails = new ArrayList<>();*/
-
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrderDetail> orderDetailArrayList = new ArrayList<>();
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+    @Transient
+    List<OrderDetails> orderDetailsList = new ArrayList<>();
 
     @ManyToOne
     private Customer customer;
 
-   /* @OneToMany(mappedBy = "orderList")
-    private List<OrderDetail> orderDetails = new ArrayList<>();*/
 
-    /*@Transient
-    List<OrderDetail> orderDetaisList;*/
+    @OneToMany (mappedBy = "orders")
+    private List<OrderDetails> orderDetails = new ArrayList<>();
 
     public Order() {
     }
 
-    public Order(int orderId, LocalDate orderDate, BigDecimal orderTotal) {
+    public Order(int orderId, LocalDate orderDate, BigDecimal orderTotal, List<OrderDetails> orderDetailsList) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.orderTotal = orderTotal;
+        this.orderDetailsList = orderDetailsList;
     }
 
     public int getOrderId() {
@@ -89,15 +68,20 @@ public class Order {
         this.orderTotal = orderTotal;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     @Override
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
                 ", orderDate=" + orderDate +
-                //", customerId=" + customerId +
                 ", orderTotal=" + orderTotal +
-                //", orderDetaisList=" + orderDetaisList +
                 '}';
     }
 }

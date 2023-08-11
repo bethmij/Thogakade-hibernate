@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -16,7 +16,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane fx:id="orderPane" prefHeight="565.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.OrderController">
    <children>
@@ -84,16 +83,14 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtQty" alignment="CENTER" focusTraversable="false" layoutX="368.0" layoutY="145.0" prefHeight="34.0" prefWidth="272.0" promptText="Quatity" style="-fx-background-radius: 30;">
+      <TextField fx:id="txtQty" alignment="CENTER" focusTraversable="false" layoutX="368.0" layoutY="145.0" onKeyReleased="#priceOnAction" prefHeight="34.0" prefWidth="272.0" promptText="Quatity" style="-fx-background-radius: 30;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="515.0" layoutY="242.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Add" />
+      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="422.0" layoutY="242.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Add" />
       <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="630.0" layoutY="549.0" mnemonicParsing="false" onAction="#btnOrderOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Place Order" />
       <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="619.0" layoutY="242.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Clear" />
-      <JFXComboBox fx:id="cmbCust" layoutX="167.0" layoutY="144.0" prefHeight="26.0" prefWidth="112.0" />
-      <JFXComboBox fx:id="cmbItem" layoutX="167.0" layoutY="190.0" prefHeight="26.0" prefWidth="112.0" />
       <Label layoutX="374.0" layoutY="197.0" text="Total Price">
          <font>
             <Font size="18.0" />
@@ -120,5 +117,8 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="518.0" layoutY="242.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-radius: 20;" text="Update" />
+      <ComboBox fx:id="cmbCust" layoutX="166.0" layoutY="146.0" prefHeight="26.0" prefWidth="100.0" />
+      <ComboBox fx:id="cmbItem" layoutX="166.0" layoutY="197.0" prefHeight="26.0" prefWidth="100.0" />
    </children>
 </AnchorPane>

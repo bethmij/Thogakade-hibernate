@@ -120,4 +120,23 @@ public class CustomerRepository {
         else
             return 0;
     }
+
+    public List<Integer> getCustIDList(){
+        Transaction transaction = session.beginTransaction();
+        List<Integer> id = null;
+
+        try {
+            id = session.createSQLQuery("SELECT customer_id FROM customer ").list();
+            transaction.commit();
+
+        }catch (Exception e){
+            transaction.rollback();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+
+        }finally {
+            session.close();
+        }
+
+        return id;
+    }
 }

@@ -7,6 +7,7 @@ import lk.ijse.entity.Order;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public class OrderRepository {
@@ -87,7 +88,7 @@ public class OrderRepository {
         List<Order> orderList = null;
 
         try {
-            orderList = session.createSQLQuery("SELECT * FROM order").addEntity(Order.class).list();
+            orderList = session.createSQLQuery("SELECT * FROM orders").addEntity(Order.class).list();
             transaction.commit();
 
         }catch (Exception e){
@@ -105,7 +106,7 @@ public class OrderRepository {
         List<Integer> id = null;
 
         try {
-            id = session.createSQLQuery("SELECT order_id FROM order ORDER BY order_id DESC LIMIT 1").list();
+            id = session.createSQLQuery("SELECT order_id FROM orders ORDER BY order_id DESC LIMIT 1").list();
             transaction.commit();
 
         }catch (Exception e){
@@ -121,4 +122,8 @@ public class OrderRepository {
         else
             return 0;
     }
+
+
+
+
 }

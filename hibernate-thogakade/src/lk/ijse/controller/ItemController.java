@@ -38,7 +38,7 @@ public class ItemController implements Initializable {
     public TableColumn ColAction;
     public TextField txtDescription;
     public AnchorPane itemPane;
-    ItemRepository itemRepository = null;
+    ItemRepository itemRepository;
     private ObservableList<ItemTM> obList = FXCollections.observableArrayList();
 
     @Override

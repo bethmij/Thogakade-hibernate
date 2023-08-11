@@ -41,7 +41,7 @@ public class CustomerController implements Initializable {
     public TextField txtSalary;
     public TableColumn ColSalary;
     public TableView tbl;
-    CustomerRepository customerRepository = null;
+    CustomerRepository customerRepository;
     private ObservableList<CustomerTM> obList = FXCollections.observableArrayList();
 
     @Override
